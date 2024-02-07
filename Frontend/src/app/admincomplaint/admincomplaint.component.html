@@ -1,0 +1,77 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>supervised_user_circle</mat-icon>
+    </button>
+    <span>Manage Complaint</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="warn" (click)="route()">User Details</button>
+  </mat-toolbar>
+  
+  <div class="container">
+    <div style="margin-top: 10px;">
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. General" #input>
+      </mat-form-field>
+     
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+     
+            <ng-container matColumnDef="complaintId">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Complaint Id</th>
+                <td mat-cell *matCellDef="let row"> {{row.complaintId}} </td>
+              </ng-container>
+         
+          <ng-container matColumnDef="userName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>User Name</th>
+            <td mat-cell *matCellDef="let row"> {{row.userName}} </td>
+          </ng-container>
+     
+         
+          <ng-container matColumnDef="complaintType">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Complaint Type</th>
+            <td mat-cell *matCellDef="let row"> {{row.complaintType}} </td>
+          </ng-container>
+     
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+            <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="aadharCardNumber">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Aadhar Card Number</th>
+            <td mat-cell *matCellDef="let row"> {{row.aadharCardNumber}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="complaintStatus">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Complaint Status</th>
+            <td mat-cell *matCellDef="let row"> {{row.complaintStatus}} </td>
+          </ng-container>
+  
+  
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+            <td mat-cell *matCellDef="let row">
+              <button mat-icon-button (click)="editProduct(row)" color="primary">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button (click)="deleteProduct(row)" mat-icon-button color="warn">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+     
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+     
+         
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+        </table>
+     
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,48 @@
+<h1 mat-dialog-title>Add Product Form</h1><br>
+<div mat-dialog-content>
+    <form [formGroup]="productForm">
+    <mat-form-field appearance="outline">
+        <mat-label>Complaint Id</mat-label>
+        <input formControlName="complaintId" matInput placeholder="Id">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>User Name</mat-label>
+        <input formControlName="userName" matInput placeholder="Name">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Complaint Type</mat-label>
+        <mat-select formControlName="complaintType" placeholder="Complaint Type">
+            <mat-option value="General">General</mat-option>
+            <mat-option value="Civil">Civil</mat-option>
+            <mat-option value="Crime">Crime</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <input formControlName="description" matInput placeholder="Description">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Aadhar Card Number</mat-label>
+        <input formControlName="aadharCardNumber" matInput placeholder="Aadhar Number">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Complaint Status</mat-label>
+        <mat-select formControlName="complaintStatus" placeholder="Complaint Status">
+            <mat-option value="Not Visited">Not Visited</mat-option>
+            <mat-option value="Visited">Visited</mat-option>
+            <mat-option value="Resolved">Resolved</mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>
+</div>
+<div mat-dialog-actions align='end'>
+    <div mat-dialog-actions align='end'>
+        <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addProduct()">{{actionBtn}}</button>
+    
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>    
+</div>
