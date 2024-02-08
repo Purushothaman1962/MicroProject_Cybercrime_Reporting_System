@@ -22,7 +22,7 @@ public class LoginController {
 	LoginService service;
 	
 	@RequestMapping("/login")
-	public ResponseEntity<?> performLogin(@RequestBody User user) {
+	public ResponseEntity<?> performlogin(@RequestBody User user) {
 		Response res=service.login(user);
 			return ResponseEntity.ok(res);
 	}
